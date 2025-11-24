@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EstoqueHub – Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="dashboard.js"></script>
+</head>
+
+<body class="dash-body">
+
+    <header class="dash-header">
+    <div class="dash-header-left">
+        <h1 class="dash-logo">📦 EstoqueHub</h1>
+
+        <nav class="dash-nav" aria-label="Navegação do dashboard">
+            <a href="dashboard.html" class="dash-nav-link dash-nav-link--active">Dashboard</a>
+            <a href="relatorios.html" class="dash-nav-link">Relatórios</a>
+        </nav>
+    </div>
+
+    <div class="dash-header-right">
+        <span id="welcome-message" class="dash-welcome"></span>
+        <button id="logout" class="logout-btn">Sair</button>
+    </div>
+</header>
+
+    <main class="dash-container">
+
+        <!-- Cards de Resumo -->
+        <section class="dash-cards">
+            <div class="dash-card">
+                <h3>Total de Produtos</h3>
+                <p id="card-total-produtos">0</p>
+            </div>
+
+            <div class="dash-card">
+                <h3>Total de Itens</h3>
+                <p id="card-total-itens">0</p>
+            </div>
+
+            <div class="dash-card">
+                <h3>Estoque Baixo</h3>
+                <p id="card-estoque-baixo">0</p>
+            </div>
+        </section>
+
+        <section class="dash-main">
+
+            <div class="dash-left">
+                <h2>Cadastro de Produto</h2>
+
+                <form id="product-form" class="dash-form">
+                    <input type="hidden" id="product-id" />
+
+                    <label>Nome do Produto</label>
+                    <input type="text" id="product-name" required />
+
+                    <label>SKU</label>
+                    <input type="text" id="product-sku" required />
+
+                    <label>Quantidade</label>
+                    <input type="number" id="product-qty" min="0" required />
+
+                    <label>Estoque Mínimo</label>
+                    <input type="number" id="product-min" min="0" required />
+
+                    <button class="primary-btn" type="submit">Salvar</button>
+
+                    <p id="product-form-msg" class="form-msg"></p>
+                </form>
+            </div>
+
+            <!-- LISTAGEM DOS PRODUTOS -->
+            <div class="dash-right">
+                <h2>Estoque Atual</h2>
+
+                <div class="dash-search-wrapper">
+                    <input
+                        type="text"
+                        id="search-input"
+                        class="dash-search"
+                        placeholder="Buscar por nome, SKU ou categoria..."
+                    />
+                </div>
+
+                <p id="no-products-msg" class="empty-msg">Nenhum produto encontrado.</p>
+
+                <table class="dash-table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>SKU</th>
+                            <th>Quantidade</th>
+                            <th>Mínimo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="products-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast-container"></div>
+</body>
+</html>

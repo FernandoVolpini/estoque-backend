@@ -1,0 +1,159 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Controle de Estoque – Login | EstoqueHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Sistema profissional de controle de estoque para pequenas e médias empresas">
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-page">
+        <header class="app-header" role="banner">
+            <div class="header-inner">
+                <div class="app-logo">
+                    <span class="logo-text" aria-label="EstoqueHub">📦 EstoqueHub</span>
+                </div>
+                <nav class="app-nav" aria-label="Navegação principal">
+                    <a href="#sobre" role="button">Sobre</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="app-main" role="main">
+            <div class="split-content">
+                
+                <section class="visual-side" aria-labelledby="hero-title">
+                    <div class="image-showcase">
+                        <div class="visual-text">
+                            <span class="product-tag" aria-label="Produto Premium">INVENTÁRIO PREMIUM</span>
+                            <h2 id="hero-title">Controle o Inesperado.</h2>
+                            <p>Uma plataforma leve, poderosa e rápida, desenhada para manter o seu negócio em movimento. Seja rápido, seja preciso.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="auth-side" aria-labelledby="auth-title">
+                    <div class="auth-card">
+                        <h2 id="auth-title" class="sr-only">Formulário de autenticação</h2>
+                        
+                        <div class="tab-controls" role="tablist" aria-label="Selecionar tipo de autenticação">
+                            <button class="tab-button active" 
+                                    role="tab" 
+                                    aria-selected="true" 
+                                    aria-controls="login-form"
+                                    data-tab="login"
+                                    id="tab-login">ENTRAR</button>
+                            <button class="tab-button" 
+                                    role="tab" 
+                                    aria-selected="false" 
+                                    aria-controls="register-form"
+                                    data-tab="register"
+                                    id="tab-register">CADASTRAR</button>
+                        </div>
+
+                        <form id="login-form" class="tab-content active" role="tabpanel" aria-labelledby="tab-login">
+                            <div class="form-group">
+                                <label for="login-email" class="required">E-mail</label>
+                                <input
+                                    type="email"
+                                    id="login-email"
+                                    placeholder="exemplo@estoquehub.com.br"
+                                    required
+                                    aria-required="true"
+                                    autocomplete="email"
+                                />
+                                <span class="field-error" id="login-email-error" aria-live="polite"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login-password" class="required">Senha</label>
+                                <input
+                                    type="password"
+                                    id="login-password"
+                                    placeholder="••••••••"
+                                    required
+                                    aria-required="true"
+                                    autocomplete="current-password"
+                                />
+                                <span class="field-error" id="login-password-error" aria-live="polite"></span>
+                            </div>
+
+                            <button type="submit" class="primary-btn" aria-label="Acessar sistema">
+                                <span class="btn-text">Acessar Sistema</span>
+                                <span class="btn-loading" aria-hidden="true">Carregando...</span>
+                            </button>
+                            <p id="login-error" class="error-msg" aria-live="assertive"></p>
+                        </form>
+
+                        <form id="register-form" class="tab-content" role="tabpanel" aria-labelledby="tab-register" hidden>
+                            <div class="form-group">
+                                <label for="register-name" class="required">Nome completo</label>
+                                <input
+                                    type="text"
+                                    id="register-name"
+                                    placeholder="Seu nome completo"
+                                    required
+                                    aria-required="true"
+                                    autocomplete="name"
+                                />
+                                <span class="field-error" id="register-name-error" aria-live="polite"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-email" class="required">E-mail</label>
+                                <input
+                                    type="email"
+                                    id="register-email"
+                                    placeholder="exemplo@estoquehub.com.br"
+                                    required
+                                    aria-required="true"
+                                    autocomplete="email"
+                                />
+                                <span class="field-error" id="register-email-error" aria-live="polite"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-password" class="required">Senha</label>
+                                <input
+                                    type="password"
+                                    id="register-password"
+                                    placeholder="Crie uma senha forte"
+                                    required
+                                    aria-required="true"
+                                    autocomplete="new-password"
+                                />
+                                <span class="field-error" id="register-password-error" aria-live="polite"></span>
+                            </div>
+
+                            <button type="submit" class="primary-btn" aria-label="Criar minha conta">
+                                <span class="btn-text">Criar Minha Conta</span>
+                                <span class="btn-loading" aria-hidden="true">Carregando...</span>
+                            </button>
+                            <p id="register-error" class="error-msg" aria-live="assertive"></p>
+                            <p id="register-success" class="success-msg" aria-live="polite"></p>
+                        </form>
+                    </div>
+                    
+                    <p class="terms-text">
+                        Ao continuar, você aceita nossos <a href="#termos" aria-label="Ler termos de serviço">Termos de Serviço</a> e <a href="#privacidade" aria-label="Ler política de privacidade">Política de Privacidade</a>.
+                    </p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Sobre -->
+    <div id="sobre-modal" class="modal" role="dialog" aria-labelledby="sobre-title" aria-modal="true" hidden>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar modal">×</button>
+            <h2 id="sobre-title">Sobre o EstoqueHub</h2>
+            <p>Sistema desenvolvido para otimizar o controle de estoque de pequenas e médias empresas.</p>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
